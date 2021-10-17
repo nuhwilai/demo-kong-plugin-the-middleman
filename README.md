@@ -27,7 +27,6 @@ git clone https://github.com/nuhwilai/kong-plugin-the-middleman
 1. start your kong from kong-demo
 ```bash
 cd kong-demo
-yarn install // or npm install
 docker-compose up
 ```
    
@@ -35,6 +34,7 @@ docker-compose up
 
 ```bash
 cd demo-kong-plugin-the-middleman 
+yarn install // or npm install
 docker-compose up
 ```
 
