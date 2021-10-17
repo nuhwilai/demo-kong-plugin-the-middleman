@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  book-api:
+    image: node:14-alpine
+    entrypoint: ["node", "/app/book-api.js"]
+    environment:
+      PORT: 3000
+    volumes:
+      - ./src:/app:ro
+    networks:
+      - kong_network
+    ports:
+      - 3000:3000
+
+  validate-api:
+    image: node:14-alpine
+    entrypoint: ["node", "/app/validate-api.js"]
+    environment:
+      PORT: 8080
+    volumes:
+      - ./src:/app:ro
+    networks:
+      - kong_network
+    ports:
+      - 8080:8080
+
+networks:
+  kong_network:
+    external: true
