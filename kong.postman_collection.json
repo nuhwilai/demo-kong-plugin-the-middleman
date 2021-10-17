@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "c0d607a0-8cda-414a-8fa8-ac25b7657dee",
+		"name": "kong",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "validate-api",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-credential",
+						"value": "abcd",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/validate/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"validate",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ERR] validate-api",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-credential",
+						"value": "cdfg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/validate/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"validate",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/book?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"book"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[K] request book",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-credential",
+						"value": "abcd",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/v1/api/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"v1",
+						"api",
+						"book"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[K: ERR] request book",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-credential",
+						"type": "text",
+						"value": "cdfg"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/v1/api/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"v1",
+						"api",
+						"book"
+					],
+					"query": [
+						{
+							"key": "error",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -2,24 +2,28 @@ version: '3.7'
 
 services:
   book-api:
+    container_name: book-api
     image: node:14-alpine
-    entrypoint: ["node", "/app/book-api.js"]
+    working_dir: /app/demo
+    command: "npm run start:book"
     environment:
       PORT: 3000
     volumes:
-      - ./src:/app:ro
+      - "./:/app/demo"  
     networks:
       - kong_network
     ports:
       - 3000:3000
 
   validate-api:
+    container_name: validate-api
     image: node:14-alpine
-    entrypoint: ["node", "/app/validate-api.js"]
+    working_dir: /app/demo
+    command: "npm run start:validate"
     environment:
       PORT: 8080
     volumes:
-      - ./src:/app:ro
+      - "./:/app/demo"
     networks:
       - kong_network
     ports:
